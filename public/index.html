@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="jsResource" content="<%= htmlWebpackPlugin.files.js.join(',')%>">
+  <meta name="IEResource" content="@IE@">
+  <title>success factors</title>
+  <% htmlWebpackPlugin.files.css.map(f=>{%>
+  <link href="<%=f%>" rel="stylesheet">
+  <% }) %>
+</head>
+<body>
+<div id="root"></div>
+</div>
+<script >
+    console.time('button-operate');
+
+    var fragment = document.createDocumentFragment();
+    function createScript (f){
+        var node = document.createElement('script');
+        node.src = f;
+        fragment.appendChild(node);
+    }
+    if(!!window.MSInputMethodContext && !!document.documentMode){
+
+        var IEContent = document.querySelector('meta[name="IEResource"]').content;
+        IEContent.split(',').forEach(createScript);
+    } else {
+        var content = document.querySelector('meta[name="jsResource"]').content;
+        content.split(',').forEach(createScript);
+    }
+    document.body.appendChild(fragment);
+</script>
+</body>
+</html>
