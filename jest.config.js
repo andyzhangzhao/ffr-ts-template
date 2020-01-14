@@ -6,7 +6,9 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest'
   },
-  moduleNameMapper: { '\\.(css|less|scss|sass)$': 'identity-obj-proxy' },
+  moduleNameMapper: { '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+  '<rootDir>/config/jest/fileMock.js' },
   transformIgnorePatterns: ['node_modules/(?!(@babel|@sf)/)'],
   setupFiles: ['./jest.setup.js']
 };
