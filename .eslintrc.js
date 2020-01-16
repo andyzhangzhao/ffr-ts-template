@@ -43,6 +43,7 @@ module.exports = {
         allowChildren: true
       }
     ]
+
     // followiong part just because too many errors incurrent phase
     // 'react/require-default-props':'off',
     // 'react/no-unused-prop-types':'off',
