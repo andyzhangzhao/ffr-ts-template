@@ -8,7 +8,7 @@ import Routes from './routes';
 // Import Css
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="HelloWorld">
       <BrowserRouter>
@@ -22,6 +22,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
