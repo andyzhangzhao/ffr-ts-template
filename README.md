@@ -1,2 +1,2 @@
-## serice config
+## tempale project
 
