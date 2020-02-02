@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     jest: true
   },
-  extends: ['airbnb-typescript', 'prettier', 'plugin:jsx-a11y/strict','plugin:jest/recommended'],
+  extends: ['airbnb-typescript', "prettier/@typescript-eslint","plugin:prettier/recommended", 'plugin:jsx-a11y/strict','plugin:jest/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -48,3 +48,4 @@ module.exports = {
   },
   root: true
 };
+
