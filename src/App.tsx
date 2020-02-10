@@ -12,10 +12,10 @@ const App: React.FC = () => {
   return (
     <div className="HelloWorld">
       <BrowserRouter>
-        <Link className="link" to={'/home'}>
+        <Link className="link" to="/home">
           to home
         </Link>
-        <Link className="link" to={'/test'}>
+        <Link className="link" to="/test">
           to test sf component
         </Link>
         <Routes />
