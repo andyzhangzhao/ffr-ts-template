@@ -45,6 +45,7 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
+const excludesCSS = /(.*)fundamental-styles.*$/;
 // const sassRegex = /\.(scss|sass)$/;
 // const sassModuleRegex = /\.module\.(scss|sass)$/;
 
@@ -380,7 +381,7 @@ module.exports = function(webpackEnv, isIE11) {
             // By default we support CSS Modules with the extension .module.css
             {
               test: cssRegex,
-              exclude: cssModuleRegex,
+              exclude: [excludesCSS, cssModuleRegex],
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap
