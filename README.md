@@ -1,4 +1,4 @@
-## tempale project
+## ffr-ts-template
 
 ## project structure
 
@@ -18,7 +18,7 @@
 ├── [M] .editorconfig        # Project code-style for IDE config file.
 ├── [M] .npmrc               # npm repo config.
 ├── [S] .huskrc              # Project git hook config.
-├── [S] tsconfig.json        # Project js config.
+├── [M] tsconfig.json        # Project js config.
 ├── [M] .jest.config.js      # Project jest config.
 ├── [M] .jest.setup.js       # Project jest init config.
 ├── [S] setupProxy.js        # Project development envionment api proxy or mock.
@@ -43,7 +43,7 @@
 │   ├── [M] App.ts           # Application Main UI
 │   ├── [M] assets           # Application import by code assets dir
 │   ├── [S] normalize.ts     # Browser normalization and polyfills
-│   ├── [M] utils            # Application utils codes dir
+│   ├── [S] common           # dir for some utils codes or non-component common functions shoudl be shared in application
 │   ├── [M] components       # Global Reusable Pure Components
 │   │   ├── user-avatar
 │   │   │  ├── [O] __test__
