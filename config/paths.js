@@ -34,7 +34,19 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
-const moduleFileExtensions = ['web.mjs', 'mjs', 'web.js', 'js', 'web.ts', 'ts', 'web.tsx', 'tsx', 'json', 'web.jsx', 'jsx'];
+const moduleFileExtensions = [
+  'web.mjs',
+  'mjs',
+  'web.js',
+  'js',
+  'web.ts',
+  'ts',
+  'web.tsx',
+  'tsx',
+  'json',
+  'web.jsx',
+  'jsx'
+];
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
@@ -46,17 +58,15 @@ const resolveModule = (resolveFn, filePath) => {
 
   return resolveFn(`${filePath}.js`);
 };
-
+const _buildPath = isProduction && process.env.PUBLIC_URL ? `build/${process.env.PUBLIC_URL}` : 'build';
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp(_buildPath),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIETemplate: resolveApp('scripts/ie11.template.html'),
-  appBuildWorker: resolveApp('scripts/buildWorker.js'),
-  appIEPage: resolveApp('build/ie11.template.html'),
+  appIEPage: resolveApp(`${_buildPath}/ie11.template.html`),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appIndexJsIE: resolveModule(resolveApp, 'src/index.ie11'),
   appPackageJson: resolveApp('package.json'),
