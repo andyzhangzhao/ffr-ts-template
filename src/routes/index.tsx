@@ -1,12 +1,15 @@
 import React from 'react';
-import HomePage from './homepage';
-import Test from './test';
+import HomePage, { HomePageModel } from './homepage';
+import DetailPage, { DetailModel } from './detail';
 
 const Routes = () => (
   <>
     <HomePage />
-    <Test />
+    <DetailPage />
   </>
 );
 
+const allModels = [HomePageModel, DetailModel];
+
 export default Routes;
+export { allModels };

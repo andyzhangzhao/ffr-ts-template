@@ -8,8 +8,8 @@ interface IHelloWorldProps {
 const HelloWorld: React.FC<IHelloWorldProps> = ({ text }) => {
   return (
     <div className="hello">
-      <h2>hello world</h2>
-      <div>{text}</div>
+      <h2>{text}</h2>
+      <div>welcome to try Fiori for React</div>
     </div>
   );
 };

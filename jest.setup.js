@@ -4,3 +4,15 @@ import { configure } from 'enzyme';
 
 configure({ adapter: new Adapter() });
 registerRequireContextHook();
+
+global.fetch = () => {};
+if (global.document) {
+  document.createRange = () => ({
+    setStart: () => {},
+    setEnd: () => {},
+    commonAncestorContainer: {
+      nodeName: 'BODY',
+      ownerDocument: document
+    }
+  });
+}
