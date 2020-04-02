@@ -4,7 +4,7 @@ import Button from '@sf/ffr-components/es/button';
 import HelloWorld from '../../components/hello-world';
 import { TGlobalState } from '../types';
 
-const connector = connect((state: TGlobalState) => ({ home: state.home }));
+const connector = connect(({ home }: TGlobalState) => ({ home }));
 
 type PropsFromState = ConnectedProps<typeof connector>;
 

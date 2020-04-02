@@ -5,7 +5,7 @@
   "dependencies": {
     "@babel/core": "7.5.5",
     "@sf/ffr-components": "0.7.0-next.5",
-    "@sf/ffr-core": "^0.6.0",
+    "@sf/ffr-core": "0.7.0-next.0",
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
     "react": "16.9.0",
@@ -95,7 +95,7 @@
     "build": "node scripts/build.js",
     "build:ci": "node scripts/build.js ci",
     "test": "node scripts/test.js",
-    "analyze": "NODE_ENV='production' node scripts/buildWorker.js --analyze",
+    "analyze": "node scripts/build.js analyze",
     "storybook": "start-storybook -p 9091 -s ./node_modules/@sf/ffr-components/dist/ -c ./.storybook",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "test:watch": "node scripts/test.js -- watch",
