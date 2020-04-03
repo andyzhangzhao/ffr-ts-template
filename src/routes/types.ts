@@ -1,4 +1,5 @@
-import { THomeModel } from './homepage/HomePageModel';
-import { TDetailModel } from './detail/DetailModel';
+import { globalState } from '@sf/ffr-core/es';
+import { HomePageModel } from './homepage/HomePageModel';
+import { DetailModel } from './detail/DetailModel';
 
-export type TGlobalState = THomeModel & TDetailModel;
+export type TGlobalState = globalState<typeof HomePageModel & typeof DetailModel>;

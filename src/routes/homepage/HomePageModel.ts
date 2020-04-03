@@ -1,5 +1,4 @@
-import { IFModel } from '@sf/ffr-core/es';
-import { Reducer } from 'redux';
+import { ISFModel, Reducer } from '@sf/ffr-core/es';
 
 interface IUpdateText {
   payload: string;
@@ -20,7 +19,7 @@ const updateCount: Reducer<IUpdateCount> = (state, action) => {
   return { ...state, count: action.payload + 1 };
 };
 
-export const HomePageModel: IFModel = {
+export const HomePageModel: ISFModel<'home', IUpdateText | IUpdateCount> = {
   namespace: 'home',
   initialState: {
     payload: 'Waiting ...',
@@ -39,4 +38,3 @@ export const HomePageModel: IFModel = {
     }
   }
 };
-export type THomeModel = { home: IUpdateText & IUpdateCount };

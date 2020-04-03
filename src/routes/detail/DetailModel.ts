@@ -1,5 +1,4 @@
-import { IFModel } from '@sf/ffr-core/es';
-import { Reducer } from 'redux';
+import { ISFModel, Reducer } from '@sf/ffr-core/es';
 
 interface IUpdateDetail {
   text: Array<string>;
@@ -12,7 +11,7 @@ const updateDetail: Reducer<IUpdateDetail> = (state, action) => {
   return { ...state, text: action.payload };
 };
 
-export const DetailModel: IFModel = {
+export const DetailModel: ISFModel<'detail', IUpdateDetail> = {
   namespace: 'detail',
   initialState: {
     text: []
@@ -32,4 +31,3 @@ export const DetailModel: IFModel = {
     }
   }
 };
-export type TDetailModel = { detail: IUpdateDetail };

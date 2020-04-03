@@ -4,10 +4,6 @@ import ListGroup, { ListItem } from '@sf/ffr-components/es/list-group';
 
 import { TGlobalState } from '../types';
 
-// const connector = connect(({ detail }: TGlobalState) => ({ detail }));
-
-// type PropsFromState = ConnectedProps<typeof connector>;
-
 const DetailPage: React.FC = () => {
   const dispatch = useDispatch();
   const detailText = useSelector(({ detail }: TGlobalState) => detail);
