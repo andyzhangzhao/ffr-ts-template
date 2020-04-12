@@ -25,7 +25,9 @@ const HomePage: React.FC<PropsFromState> = ({ home, dispatch }) => {
     <>
       <HelloWorld text={payload} />
       <div style={{ marginLeft: 48 }}>
-        <Button onClick={handleClick}>See you again</Button>
+        <Button onClick={handleClick} glyph="sys-add">
+          See you again
+        </Button>
         <div>{`see you ${countContainer.current} times`}</div>
       </div>
     </>

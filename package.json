@@ -4,8 +4,9 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.5.5",
-    "@sf/ffr-components": "0.7.0-next.5",
-    "@sf/ffr-core": "^0.7.0-next.4",
+    "@sap-theming/theming-base-content": "11.1.18",
+    "@sf/ffr-components": "0.8.0-next.1",
+    "@sf/ffr-core": "0.7.0-next.4",
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
     "react": "16.9.0",
@@ -100,7 +101,7 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "test:watch": "node scripts/test.js -- watch",
     "test:coverage": "node scripts/test.js --coverage",
-    "test:debug": "node --inspect-brk noe_modules/.bin/jest --watchAll --runInBand",
+    "test:debug": "node --inspect-brk noe_modules/.bin/jest --runInBand",
     "init": "npm install"
   },
   "browserslist": {

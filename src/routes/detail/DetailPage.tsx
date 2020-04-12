@@ -15,7 +15,7 @@ const DetailPage: React.FC = () => {
 
   return (
     <div style={{ marginLeft: 48 }}>
-      <h2>How to learn Fori for Reaact</h2>
+      <h2>How to learn Fori for React</h2>
       <ListGroup>
         {text.map((tt, inx) => {
           // eslint-disable-next-line react/no-array-index-key

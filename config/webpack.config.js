@@ -17,9 +17,6 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const paths = require('./paths');
-const modules = require('./modules');
-const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 
 const postcssNormalize = require('postcss-normalize');
@@ -29,7 +26,11 @@ const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const WebpackRTLWrapPlugin = require('webpack-rtl-wrap-plugin');
 
 // analyze bundle size
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const getClientEnvironment = require('./env');
+const modules = require('./modules');
+const paths = require('./paths');
+
 const params = process.argv.slice(2);
 const showAnalyze = params.indexOf('--analyze') >= 0;
 
@@ -165,7 +166,7 @@ module.exports = function(webpackEnv, isIE11) {
         : isEnvDevelopment && 'static/js/[name].chunk.js',
       // We inferred the "public path" (such as / or /my-project) from homepage.
       // We use "/" in development.
-      publicPath: publicPath,
+      publicPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
@@ -435,32 +436,27 @@ module.exports = function(webpackEnv, isIE11) {
         testCss: /main.*\.css?$/
       }),
       // Generates an `index.html` file with the <script> injected.
-      new HtmlWebpackPlugin(
-        Object.assign(
-          {},
-          {
-            inject: false,
-            template: paths.appHtml,
-            filename: 'index.html'
-          },
-          isEnvProduction
-            ? {
-                minify: {
-                  removeComments: true,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true
-                }
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: paths.appHtml,
+        filename: 'index.html',
+        ...(isEnvProduction
+          ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
               }
-            : undefined
-        )
-      ),
+            }
+          : undefined)
+      }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // isEnvProduction && shouldInlineRuntimeChunk && new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
@@ -503,7 +499,7 @@ module.exports = function(webpackEnv, isIE11) {
       // having to parse `index.html`.
       new ManifestPlugin({
         fileName: 'asset-manifest.json',
-        publicPath: publicPath,
+        publicPath,
         generate: (seed, files) => {
           const manifestFiles = files.reduce(function(manifest, file) {
             manifest[file.name] = file.path;
@@ -528,7 +524,7 @@ module.exports = function(webpackEnv, isIE11) {
           clientsClaim: true,
           exclude: [/\.map$/, /asset-manifest\.json$/],
           importWorkboxFrom: 'cdn',
-          navigateFallback: publicUrl + '/index.html',
+          navigateFallback: `${publicUrl}/index.html`,
           navigateFallbackBlacklist: [
             // Exclude URLs starting with /_, as they're likely an API call
             new RegExp('^/_'),
