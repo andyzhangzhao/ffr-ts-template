@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useRef } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
+import { ConnectedProps } from '@sf/ffr-core';
 import Button from '@sf/ffr-components/es/button';
 import HelloWorld from '../../components/hello-world';
 import { TGlobalState } from '../types';
@@ -16,7 +17,9 @@ const HomePage: React.FC<PropsFromState> = ({ home, dispatch }) => {
   }, []);
 
   const handleClick = useCallback(() => {
-    dispatch({ type: 'home/updateCount', payload: countContainer.current });
+    dispatch({ type: 'home/updateCount', payload: countContainer.current }).catch(e => {
+      console.error(e);
+    });
   }, []);
   const { payload, count } = home;
   countContainer.current = count;
