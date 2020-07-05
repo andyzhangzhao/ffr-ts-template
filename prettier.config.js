@@ -1,5 +1,12 @@
 module.exports = {
   printWidth: 120,
-  parser: 'typescript',
-  singleQuote: true
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      options: { parser: 'typescript' }
+    }
+  ],
+  singleQuote: true,
+  trailingComma: 'none',
+  arrowParens: 'avoid'
 };

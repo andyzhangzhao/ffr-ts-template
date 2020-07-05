@@ -1,7 +1,7 @@
 {
-	"name": "<%= name %>",
-	"version": "<%= version %>",
-	"description": "<%= description %>",
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
   "private": true,
   "dependencies": {
     "@babel/core": "7.5.5",
@@ -73,7 +73,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
-    "prettier": "1.18.2",
+    "prettier": "2.0.5",
     "react-test-renderer": "16.9.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
