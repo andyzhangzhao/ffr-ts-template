@@ -17,9 +17,7 @@ const HomePage: React.FC<PropsFromState> = ({ home, dispatch }) => {
   }, []);
 
   const handleClick = useCallback(() => {
-    dispatch({ type: 'home/updateCount', payload: countContainer.current }).catch(e => {
-      console.error(e);
-    });
+    dispatch({ type: 'home/updateCount', payload: countContainer.current });
   }, []);
   const { payload, count } = home;
   countContainer.current = count;

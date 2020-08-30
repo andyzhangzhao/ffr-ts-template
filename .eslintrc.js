@@ -43,6 +43,7 @@ module.exports = {
     radix: ['error', 'as-needed'],
     'func-names': ['error', 'never'],
     '@typescript-eslint/no-use-before-define': 'off',
+    'no-debugger': 'off',
 
     // followiong part just because too many errors incurrent phase
     'react/require-default-props': 'off',
