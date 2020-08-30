@@ -26,3 +26,9 @@ yarn-error.log*
 
 # webstorm
 .idea
+
+/cypress/videos/**
+/cypress/integration/test/**
+/cypress/integration/examples/**
+/cypress/screenshots/**
+/cypress/mocks/**
