@@ -62,3 +62,10 @@ declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+export declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION__: any;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (obj: any) => any;
+  }
+}

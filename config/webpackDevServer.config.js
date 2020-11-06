@@ -1,15 +1,14 @@
-"use strict";
+'use strict';
 
-const errorOverlayMiddleware = require("react-dev-utils/errorOverlayMiddleware");
-const evalSourceMapMiddleware = require("react-dev-utils/evalSourceMapMiddleware");
-const noopServiceWorkerMiddleware = require("react-dev-utils/noopServiceWorkerMiddleware");
-const ignoredFiles = require("react-dev-utils/ignoredFiles");
-const generateMockDataMiddleware = require("@sf/ffr-core/es/scripts/generateMockDataMiddleware");
-const paths = require("./paths");
-const fs = require("fs");
+const fs = require('fs');
+const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
+const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
+const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
+const ignoredFiles = require('react-dev-utils/ignoredFiles');
+const paths = require('./paths');
 
-const protocol = process.env.HTTPS === "true" ? "https" : "http";
-const host = process.env.HOST || "0.0.0.0";
+const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
+const host = process.env.HOST || '0.0.0.0';
 
 module.exports = function(proxy, allowedHost) {
   return {
@@ -29,13 +28,12 @@ module.exports = function(proxy, allowedHost) {
     // So we will disable the host check normally, but enable it if you have
     // specified the `proxy` setting. Finally, we let you override it if you
     // really know what you're doing with a special environment variable.
-    disableHostCheck:
-      !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === "true",
+    disableHostCheck: !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
     // Enable gzip compression of generated files.
     compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
     // It will still show compile warnings and errors with this setting.
-    clientLogLevel: "none",
+    // clientLogLevel: 'none',
     // By default WebpackDevServer serves physical files from current directory
     // in addition to all the virtual build products that it serves from memory.
     // This is confusing because those files won’t automatically be available in
@@ -61,10 +59,10 @@ module.exports = function(proxy, allowedHost) {
     hot: true,
     // It is important to tell WebpackDevServer to use the same "root" path
     // as we specified in the config. In development, we always serve from /.
-    publicPath: "/",
+    publicPath: '/',
     // WebpackDevServer is noisy by default so we emit custom message instead
     // by listening to the compiler events with `compiler.hooks[...].tap` calls above.
-    quiet: true,
+    // quiet: true,
     // Reportedly, this avoids CPU overload on some systems.
     // https://github.com/facebook/create-react-app/issues/293
     // src/node_modules is not ignored to support absolute imports
@@ -73,7 +71,7 @@ module.exports = function(proxy, allowedHost) {
       ignored: ignoredFiles(paths.appSrc)
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
-    https: protocol === "https",
+    https: protocol === 'https',
     host,
     overlay: false,
     historyApiFallback: {
@@ -88,8 +86,7 @@ module.exports = function(proxy, allowedHost) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);
       }
-      // generate Mock data for cepress, must set APP_MOCK_GENERATION to enable generation
-      app.use(generateMockDataMiddleware({ folder: ["cypress", "mocks"] }));
+
       // This lets us fetch source contents from webpack for the error overlay
       app.use(evalSourceMapMiddleware(server));
       // This lets us open files from the runtime error overlay.

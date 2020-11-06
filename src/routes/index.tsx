@@ -1,15 +1,15 @@
 import React from 'react';
-import HomePage, { HomePageModel } from './homepage';
-import DetailPage, { DetailModel } from './detail';
 
-const Routes = () => (
+import User from './user';
+import UserDetail from './user-detail';
+
+import { IRoutesProps } from '../common/types';
+
+const Routes: React.FC<IRoutesProps> = ({ match }) => (
   <>
-    <HomePage />
-    <DetailPage />
+    <User match={match} />
+    <UserDetail match={match} />
   </>
 );
 
-const allModels = [HomePageModel, DetailModel];
-
 export default Routes;
-export { allModels };

@@ -1,4 +1,5 @@
 {
+  "baseUrl": "https://devportal-mf.devcluster.cksdc25.c.eu-de-1.cloud.sap/",
   "experimentalFetchPolyfill": true,
   "viewportHeight": 800,
   "viewportWidth": 1110

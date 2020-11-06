@@ -7,7 +7,7 @@ const url = require('url');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const isProduction = process.env.NODE_ENV === 'production';
-const envPublicUrl = process.env.PUBLIC_URL;
+const envPublicUrl = process.env.APP_SERVICE_PUBLIC_URL || process.env.PUBLIC_URL;
 
 function ensureSlash(inputPath, needsSlash) {
   const hasSlash = inputPath.endsWith('/');

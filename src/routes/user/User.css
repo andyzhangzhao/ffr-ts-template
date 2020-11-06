@@ -1,0 +1,30 @@
+.mfd-container {
+  height: 100%;
+  background: #fff;
+  padding: 16px 24px;
+}
+
+.mfd-title-section {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.mfd-title-section .mfd-title {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 52px;
+}
+
+.mfd-title-section .mfd-subtitle {
+  color: #777;
+}
+
+.mfd-title-section button {
+  margin: 0 16px 0 0;
+}
+
+.mfd-title-section button:first-of-type {
+  margin: 0 8px 0 auto;
+}

@@ -12,5 +12,6 @@ module.exports = {
       '<rootDir>/config/jest/fileMock.js'
   },
   transformIgnorePatterns: ['node_modules/(?!(@babel|@sf)/)'],
-  setupFiles: ['./jest.setup.js']
+  setupFiles: ['./jest.setup.js'],
+  testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/']
 };

@@ -1,0 +1,45 @@
+.mfd-detail-container {
+  height: 100%;
+  background: #fff;
+  padding: 16px 24px;
+}
+
+.mfd-detail-container .mfd-detail-header {
+  box-shadow: 0 0 4px 0 rgba(0,0,0,.15),inset 0 -1px 0 0 #d9d9d9;
+  padding: 16px 24px;
+}
+
+.mfd-detail-container .mfd-detail-header-text {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.mfd-detail-container .mfd-detail-header-icons {
+  line-height: 56px;
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.mfd-detail-content {
+  padding: 1.5rem;
+  background: #f7f7f7;
+}
+
+.mfd-detail-cards-container {
+  padding: 16px;
+}
+
+.mfd-detail-cards-wrapper {
+  display: flex;
+  margin: 0 0 1rem 0;
+}
+
+.mfd-detail-cards-wrapper>*:nth-child(1) {
+  flex: 2.8;
+  margin-right: 1rem;
+}
+
+.mfd-detail-cards-wrapper>*:nth-child(2) {
+  flex: 2;
+}
