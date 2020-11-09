@@ -95,6 +95,7 @@
     "test:watch": "node scripts/test.js -- watch",
     "test:coverage": "node scripts/test.js --coverage",
     "test:debug": "node --inspect-brk noe_modules/.bin/jest --runInBand",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "init": "npm install"
   },
   "browserslist": {
